@@ -1,3 +1,4 @@
+local cmd = vim.cmd
 local keyset = vim.keymap.set
 -- Autocomplete
 function _G.check_back_space()
@@ -22,4 +23,10 @@ keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r
 keyset("i", "<c-j>", "<Plug>(coc-snippets-expand-jump)")
 -- Use <c-space> to trigger completion
 keyset("i", "<c-space>", "coc#refresh()", {silent = true, expr = true})
+ cmd('vmap < <gv')
+cmd('vmap > >gv')
+cmd("vmap J :m '>+1<CR>gv=gvzz'")
+cmd("vmap K :m '<-2<CR>gv=gvzz'")
+cmd('nnoremap <c-n> :%s///g<left><left>')
+cmd('nnoremap <c-m> :%s///gc<left><left><left>')
 

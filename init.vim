@@ -17,6 +17,8 @@ Plug 'JoosepAlviste/nvim-ts-context-commentstring' | Plug 'tpope/vim-commentary'
 Plug 'neovim/nvim-lspconfig'
 Plug 'f-person/git-blame.nvim' | Plug 'tpope/vim-fugitive' | Plug 'airblade/vim-gitgutter', {'branch': 'master'} | Plug 'axkirillov/easypick.nvim'
 Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-lua/plenary.nvim' | Plug 'sindrets/diffview.nvim'
+
 call plug#end()
 
 let mapleader = ' '
@@ -161,116 +163,6 @@ treesitter.setup()
 local telescope = require("plugins.telescope")
 telescope.setup()
 
--- require'telescope'.setup {
---   defaults = {
---     layout_strategy = 'horizontal',
---     layout_conig = {
---       width = 0.8,
---       height = 0.8,
---     },
---     borderchars = { 
---       "─", "│", "─", "│", "╭", "╮", "╯", "╰"
---     },
---     vimgrep_arguments = {
---       'rg',
---       '--hidden',
---       '--color=never',
---       '--no-heading',
---       '--with-filename',
---       '--line-number',
---       '--column',
---       '--smart-case',
---       '--fixed-strings',
---       '--sort-files',
---       '--trim',
---     },
---     file_ignore_patterns = {
---       '.git/',
---     },
---     buffer_previewer_maker = preview_maker,
---     preview = {
---       mime_hook = function(filepath, bufnr, opts)
---         local split_path = vim.split(filepath:lower(), '.', { plain = true })
---         local ext = split_path[#split_path]
-
---         if vim.tbl_contains({ 'png', 'jpg', 'jpeg' }, ext) then
---           local term = vim.api.nvim_open_term(bufnr, {})
---           local function send_output(_, data, _)
---             for _, d in ipairs(data) do
---               vim.api.nvim_chan_send(term, d .. '\r\n')
---             end
---           end
-
---           vim.fn.jobstart(
---             { 'catimg', '-w 150', filepath },
---             { on_stdout = send_output, stdout_buffered = true }
---           )
---         else
---           require("telescope.previewers.utils").set_preview_message(bufnr, opts.winid, "Binary cannot be previewed")
---         end
---       end
---     },
---     mappings = {
---       i = {
---         ["<esc>"] = actions.close,
---       },
---     },
---   },
---   pickers = {
---     find_files = {
---       find_command = {
---        'fd',
---         '--type',
---         'f',
---         '--color=never',
---         '--hidden',
---         '--follow',
---         '--strip-cwd-prefix', -- Remove ./ prefix in find_files
---         '--no-ignore-vcs',
---         '--exclude=node_modules',
---         '--exclude=.git',
---         '--exclude=dist*',
---         '--exclude=build',
---         '--exclude=.gradle',
---         '--exclude=.next',
---         '--exclude=to-be-copy/'
---       },
---     },
---   },
---   extensions = {
---     project = {
---       hidden_files = true,
---       theme = "dropdown",
---     },
---     fzf = {
---       fuzzy = true, -- false will only do exact matching
---       override_generic_sorter = true, -- override the generic sorter
---       override_file_sorter = true, -- override the file sorter
---       case_mode = "smart_case", -- or "ignore_case" or "respect_case"
---     },
---     file_browser = {
---       mappings = {
---         ['i'] = {
---           ['<C-e>'] = fb_actions.create,
---           ['<C-r>'] = fb_actions.rename,
---           ['<C-p>'] = fb_actions.move,
---           ['<C-y>'] = fb_actions.copy,
---           ['<C-d>'] = fb_actions.remove,
---         },
---       },
---       hidden = true,
---       respect_gitignore = false,
---       -- dir_icon = "",
---       grouped = true,
---       select_buffer = true,
---       display_stat = false,
---     }
---   },
--- }
-
--- require('telescope').load_extension('file_browser')
--- require('telescope').load_extension('fzf')
--- require('telescope').load_extension('project')
 require'nvim-treesitter.configs'.setup {
   autotag = {
     enable = true,
@@ -282,6 +174,8 @@ require'nvim-treesitter.configs'.setup {
 local lualine = require("plugins.lualine")
 lualine.setup()
 
+local diffview = require("plugins.diffview")
+diffview.setup()
 EOF
 
 " Find files using Telescope command-line sugar.
