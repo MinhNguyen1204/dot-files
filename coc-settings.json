@@ -1,0 +1,62 @@
+{
+  "suggest.floatEnable": false,
+  "suggest.autoTrigger": "always",
+  "suggest.noselect": false,
+  "diagnostic.errorSign": "",
+  "git.changedSign.text": "פֿ",
+  "git.removedSign.text": "",
+  "javascript.validate.enable": false,
+  "eslint.autoFixOnSave": true,
+  "eslint.quiet": true,
+  "eslint.format.enable": true,
+  "stylelintplus.autoFixOnSave": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "typescript",
+    "javascript",
+    "javascriptreact",
+    "typescriptreact",
+    "json"
+  ],
+  "snippets.ultisnips.enable": false,
+  "snippets.extends": {
+    "javascriptreact": ["javascript"],
+    "typescript": ["javascript"]
+  },
+  "tsserver.formatOnType": false,
+  "coc.preferences.formatOnType": false,
+  "suggest.completionItemKindLabels": {
+    "method": "  ",
+    "function": " unction ",
+    "variable": "[]",
+    "field": "  ",
+    "typeParameter": "<>",
+    "constant": "  ",
+    "class": " פּ ",
+    "interface": " 蘒",
+    "struct": "  ",
+    "event": "  ",
+    "operator": "  ",
+    "module": "  ",
+    "property": "  ",
+    "enum": " 練",
+    "reference": "  ",
+    "keyword": "  ",
+    "file": "  ",
+    "folder": " ﱮ ",
+    "color": "  ",
+    "unit": " 塞 ",
+    "snippet": "  ",
+    "text": "  ",
+    "constructor": "  ",
+    "value": "  ",
+    "enumMember": "  "
+  },
+  "suggest.floatConfig": {
+    "rounded": true,
+    "border": true
+  },
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.virtualText": true
+}
