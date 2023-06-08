@@ -30,3 +30,20 @@ cmd("vmap K :m '<-2<CR>gv=gvzz'")
 cmd('nnoremap <c-n> :%s///g<left><left>')
 cmd('nnoremap <c-m> :%s///gc<left><left><left>')
 
+---Navigation Panel---
+cmd('nnoremap <C-h> <C-w>h')
+cmd('nnoremap <C-j> <C-w>j')
+cmd('nnoremap <C-k> <C-w>k')
+cmd('nnoremap <C-l> <C-w>l')
+cmd('nnoremap <C-v> <C-w>v')
+cmd('nnoremap <C-s> <C-w>s')
+
+---Resize Panel---
+cmd('nnoremap <leader>u :vertical resize +10<CR>')
+cmd('nnoremap <leader>d :vertical resize -10<CR>')
+
+---Visual mode---
+cmd('vmap < <gv')
+cmd('vmap > >gv')
+cmd("vmap J :m '>+1<CR>gv=gvzz'")
+cmd("vmap K :m '<-2<CR>gv=gvzz'")

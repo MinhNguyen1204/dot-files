@@ -16,11 +16,18 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'JoosepAlviste/nvim-ts-context-commentstring' | Plug 'tpope/vim-commentary'
 Plug 'neovim/nvim-lspconfig'
 Plug 'f-person/git-blame.nvim' | Plug 'tpope/vim-fugitive' | Plug 'airblade/vim-gitgutter', {'branch': 'master'} | Plug 'axkirillov/easypick.nvim'
+" Show git | error warning below screen
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-lua/plenary.nvim' | Plug 'sindrets/diffview.nvim'
 " Indent Line
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'shellRaining/hlchunk.nvim'
+
+" Terminal in terminal
+Plug 'voldikss/vim-floaterm'
+
+" Show hex color
+Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()
 
 let mapleader = ' '
@@ -28,7 +35,7 @@ let mapleader = ' '
 set mouse +=a
 
 nmap <leader>w :w<CR>
-nmap <leader>e :q!<CR>
+nmap <leader>q :q!<CR>
 nmap <leader>k :noa w<CR>
 
 
@@ -76,28 +83,8 @@ syntax enable
 "---Transparent background
 au ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 nnoremap <silent> <leader>h :noh<CR>
+
 lua << EOF
-
--- local actions = require('telescope.actions')
--- local fb_actions = require("telescope").extensions.file_browser.actions
--- local previewers = require('telescope.previewers')
--- local preview_maker = function (filepath, bufnr, opts)
---   local bad_files = function (filepath)
---     local _bad = { 'metadata/.*%.json', 'html2pdf.bundle.min' } -- Put all filetypes that slow you down in this array
---     for _, v in ipairs(_bad) do
---       if filepath:match(v) then
---         return false
---       end
---     end
---     return true
---   end
-
---   opts = opts or {}
---   if opts.use_ft_detect == nil then opts.use_ft_detect = true end
---   opts.use_ft_detect = opts.use_ft_detect == false and false or bad_files(filepath)
---   previewers.buffer_previewer_maker(filepath, bufnr, opts)
--- end
-
 require("mappings")
 require("tokyonight").setup({
   transparent = true,
@@ -177,7 +164,7 @@ for _, part in pairs(transparents) do
     end
   if part == 'Visual'
     then
-    str = str:gsub("guibg=NONE", "guibg=#99FF99") .. 'guifg=#000000'
+    str = str:gsub("guibg=NONE", "guibg=#F8FD89") .. 'guifg=#000000'
     end
   
   vim.cmd(str)
@@ -198,8 +185,8 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
   }
 }
--- local lspconfig = require('plugins.lspconfig')
--- lspconfig.setup()
+local lspconfig = require('plugins.lspconfig')
+lspconfig.setup()
 
 local lualine = require("plugins.lualine")
 lualine.setup()
@@ -209,6 +196,15 @@ diffview.setup()
 
 local indent = require("plugins.indent_blankline")
 indent.setup()
+
+local easypick = require("plugins.easypick")
+easypick.setup()
+
+local floaterm = require("plugins.floaterm")
+floaterm.setup()
+
+local colorizer =require('colorizer')
+colorizer.setup()
 
 EOF
 
@@ -233,7 +229,6 @@ let g:coc_global_extensions = [
   \ 'coc-ultisnips',
   \ 'coc-emmet',
   \ 'coc-json',
-  \ 'coc-tsserver',
   \ 'coc-html',
   \ 'coc-css',
   \ 'coc-yaml',
@@ -242,3 +237,4 @@ let g:coc_global_extensions = [
   \ 'coc-git',
   \ 'coc-prettier',
   \ ]
+

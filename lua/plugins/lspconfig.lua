@@ -30,7 +30,7 @@ M.setup = function()
         autocmd BufWritePre <buffer> EslintFixAll
       augroup END
       ]])
-      M.attach(client, bufnr)
+      -- M.attach(client, bufnr)
     end,
     settings = {
       codeActionOnSave = {
