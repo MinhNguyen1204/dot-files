@@ -85,6 +85,7 @@ au ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 nnoremap <silent> <leader>h :noh<CR>
 
 lua << EOF
+
 require("mappings")
 require("tokyonight").setup({
   transparent = true,
@@ -235,6 +236,7 @@ let g:coc_global_extensions = [
   \ 'coc-highlight',
   \ 'coc-eslint',
   \ 'coc-git',
+  \ 'coc-tsserver',
   \ 'coc-prettier',
   \ ]
 
