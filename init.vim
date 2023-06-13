@@ -228,6 +228,7 @@ nnoremap <leader>jj :AnyJumpBack<CR>
 " Normal mode: open last closed search window again
 nnoremap <leader>al :AnyJumpLastResults<CR>
 
+
 let g:coc_global_extensions = [
   \ 'coc-ultisnips',
   \ 'coc-emmet',
@@ -240,5 +241,6 @@ let g:coc_global_extensions = [
   \ 'coc-git',
   \ 'coc-tsserver',
   \ 'coc-prettier',
+  \ 'coc-pairs',
   \ ]
 
