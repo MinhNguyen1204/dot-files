@@ -28,6 +28,7 @@ Plug 'voldikss/vim-floaterm'
 
 " Show hex color
 Plug 'norcalli/nvim-colorizer.lua'
+
 call plug#end()
 
 let mapleader = ' '
@@ -204,8 +205,9 @@ easypick.setup()
 local floaterm = require("plugins.floaterm")
 floaterm.setup()
 
-local colorizer =require('colorizer')
-colorizer.setup()
+
+local color = require("colorizer")
+color.setup()
 
 EOF
 

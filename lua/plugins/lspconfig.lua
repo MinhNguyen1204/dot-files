@@ -25,8 +25,13 @@ M.setup = function()
   lspconfig.eslint.setup({
     on_attach = function(client, bufnr)
       vim.cmd([[
+
       augroup LspEslint
+
+
+
         autocmd! * <buffer>
+
         autocmd BufWritePre <buffer> EslintFixAll
       augroup END
       ]])
