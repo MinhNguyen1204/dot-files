@@ -6,7 +6,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
-Plug 'voldikss/vim-floaterm' | Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-telescope/telescope-project.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -20,12 +20,12 @@ Plug 'f-person/git-blame.nvim' | Plug 'tpope/vim-fugitive' | Plug 'airblade/vim-
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-lua/plenary.nvim' | Plug 'sindrets/diffview.nvim'
 " Indent Line
-Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'shellRaining/hlchunk.nvim'
+" Plug 'lukas-reineke/indent-blankline.nvim'
+" Plug 'shellRaining/hlchunk.nvim'
 
 " Terminal in terminal
-Plug 'voldikss/vim-floaterm'
-
+" Plug 'voldikss/vim-floaterm'
+Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 " Show hex color
 Plug 'norcalli/nvim-colorizer.lua'
 
@@ -196,18 +196,20 @@ lualine.setup()
 local diffview = require("plugins.diffview")
 diffview.setup()
 
-local indent = require("plugins.indent_blankline")
-indent.setup()
+-- local indent = require("plugins.indent_blankline")
+-- indent.setup()
 
 local easypick = require("plugins.easypick")
 easypick.setup()
 
-local floaterm = require("plugins.floaterm")
-floaterm.setup()
-
+-- local floaterm = require("plugins.floaterm")
+-- floaterm.setup()
 
 local color = require("colorizer")
 color.setup()
+
+local toggleterm = require("plugins.toggleterm")
+toggleterm.setup()
 
 EOF
 
@@ -227,7 +229,6 @@ xnoremap <leader>j :AnyJumpVisual<CR>
 nnoremap <leader>jj :AnyJumpBack<CR>
 " Normal mode: open last closed search window again
 nnoremap <leader>al :AnyJumpLastResults<CR>
-
 
 let g:coc_global_extensions = [
   \ 'coc-ultisnips',
